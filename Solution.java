@@ -29,11 +29,9 @@ public class Solution {
         int[] arr = {1, 3, 2, 7, 9, 11, 5};
         SparceTableForMin sparseTable = new SparceTableForMin(arr.length);
         sparseTable.build(arr);
-        //System.out.println(Arrays.deepToString(sparseTable.table)); 
-
-        // Example queries
-        System.out.println(sparseTable.query(0, 3)); // Output: 1 (min in range [1, 3, 2, 7])
-        System.out.println(sparseTable.query(2, 5)); // Output: 2 (min in range [2, 7, 9, 11])
-        System.out.println(sparseTable.query(4, 6)); // Output: 5 (min in range [9, 11, 5])        
+        
+        System.out.println(sparseTable.query(0, 3));
+        System.out.println(sparseTable.query(2, 5)); 
+        System.out.println(sparseTable.query(4, 6));  
     }
 }
