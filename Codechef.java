@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Codechef {
@@ -16,7 +17,41 @@ public class Codechef {
     }
 
     public static void s() {
-       
+        long totalBase = sc.nextLong();
+        long days = sc.nextLong();
+        long baseCamp = sc.nextLong();
+
+        long low = 1;
+        long high = totalBase;
+        long ans = low;
+
+        while (low <= high) {
+            long mid = low + (high - low) / 2;
+            boolean temp = check(totalBase, days, baseCamp, mid);
+            if (temp) {
+                ans = mid;
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        sc.println(ans);
+    }
+
+    public static boolean check(long totalBase, long days, long baseCamp, long target) {
+        long onLeft = baseCamp - 1;
+        long onRight = totalBase - baseCamp;
+        long min = Long.MAX_VALUE;
+        for (long i = Math.min(target - 1, onLeft); i >= 0; i--) {
+            long currOnRight = target - (i + 1);
+            if (currOnRight > onRight) {
+                continue;
+            }
+            long reqDays = (i - 1) + Math.max(currOnRight, i) + currOnRight;
+            min = Math.min(min, reqDays);
+            //sc.println("Left: " + i + " Right: " + currOnRight + " Days: " + reqDays+"  target: "+target+"  min: "+min);
+        }
+        return min <= days;
     }
 }
 

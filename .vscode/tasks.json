@@ -4,20 +4,10 @@
         {
           "label": "Compile and run Java",
           "type": "shell",
-          "command": "",
+          "command": "cmd",
           "args": [
-            "javac",
-            "Codechef.java",
-            "&&",
-            "java",
-            "Codechef",
-            "<",
-            "input.txt",
-            ">",
-            "output.txt",
-            "&&",
-            "rm",
-            "Codechef.class",
+            "/c",
+            "javac Codechef.java && java Codechef < input.txt > output.txt && del Codechef.class"
           ],
           "presentation": {
             "reveal": "never"
