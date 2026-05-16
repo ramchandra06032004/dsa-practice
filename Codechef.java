@@ -16,7 +16,7 @@ public class Codechef {
     }
 
     public static void s() {
-       
+
     }
 }
 
